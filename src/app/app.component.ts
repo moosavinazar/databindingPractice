@@ -6,5 +6,21 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'databindingPractice';
+  username: string = '';
+  password: string = '';
+  retypePassword: string = '';
+  isPasswordMatch: boolean = false;
+
+  public onUserNameInputChanged(e: Event) {
+    this.username = (<HTMLInputElement>e.target).value;
+  }
+
+  public onPasswordChanged(e: Event) {
+    this.password = (<HTMLInputElement>e.target).value;
+  }
+
+  public onRetypePasswordChanged(e: Event) {
+    this.retypePassword = (<HTMLInputElement>e.target).value;
+    this.isPasswordMatch = this.password === this.retypePassword;
+  }
 }
